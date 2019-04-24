@@ -1,2 +1,3 @@
 myenv.env
 test/can.ex2
+data/*
