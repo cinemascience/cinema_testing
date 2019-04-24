@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# settings
+# settings to control internal logic
 run_interactive=true
 run_batch=false
 
