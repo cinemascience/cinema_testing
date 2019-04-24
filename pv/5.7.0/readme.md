@@ -8,7 +8,7 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
     - ``CINEMATESTING_FILEDRIVER``  This is the location of the filedriver.py script (Can be found in the paraview source at Examples/Catalyst/SampleScripts/filedriver.py)
     - ``CINEMATESTING_BROWSER``  This is the name of your preferred browser 
 
-2. Copy the testing dataset can.ex2 from whereever it is on your system into the ``test/`` directory.
+2. Copy the testing dataset ``can.ex2`` from wherever it is on your system into the ``test/`` directory.
 
 3. Type ``./run_tests`` and the test script will run. It will open ``ParaView``, create outputs, check those, and open viewers on the resulting databases.
 
