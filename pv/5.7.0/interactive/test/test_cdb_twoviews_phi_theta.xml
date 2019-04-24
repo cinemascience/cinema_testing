@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<pqevents>
+  <pqevent object="pqClientMainWindow/menubar/menu_File" command="activate" arguments="actionFileLoadServerState" />
+  <pqevent object="pqClientMainWindow/FileLoadServerStateDialog" command="filesSelected" arguments="test/time_source_twoviews.pvsm" />
+  <pqevent object="LoadStateOptionsDialog/widget/OKButton" command="activate" arguments="" />
+
+  <pqevent object="pqClientMainWindow/pipelineBrowserDock/pipelineBrowser" command="mousePress" arguments="1,1,0,60,13,/0:0/0:0" />
+  <pqevent object="pqClientMainWindow/pipelineBrowserDock/pipelineBrowser" command="mouseRelease" arguments="1,0,0,60,13,/0:0/0:0" />
+  <pqevent object="pqClientMainWindow/1QTabBar0" command="set_tab_with_text" arguments="Catalyst Export Inspector" />
+
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/RootDirectory/RootDirectory" command="set_string" arguments="data/test_cdb_twoviews_phi_theta.cdb" />
+
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/advanced" command="set_boolean" arguments="true" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/SaveDTable/CheckBox" command="set_boolean" arguments="true" />
+
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/advanced" command="set_boolean" arguments="false" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewFormat" command="activated" arguments="Cinema image database (*.cdb)" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewExtract" command="set_boolean" arguments="true" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewConfigure" command="activate" arguments="" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraModel/ComboBox" command="activated" arguments="Phi-Theta" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraPhiDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="key" arguments="16777217" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/widget/OKButton" command="activate" arguments="" />
+
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewChoice" command="activated" arguments="RenderView2" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewFormat" command="activated" arguments="Cinema image database (*.cdb)" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewExtract" command="set_boolean" arguments="true" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/viewConfigure" command="activate" arguments="" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraModel/ComboBox" command="activated" arguments="Phi-Theta" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraPhiDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="key" arguments="16777217" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/widget/OKButton" command="activate" arguments="" />
+
+  <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menu_Catalyst" />
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionExportImmediate" />
+</pqevents>
