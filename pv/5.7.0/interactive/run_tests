@@ -19,6 +19,8 @@ fi
 
 
 paraview=$CINEMATESTING_PARAVIEW
+pvbatch=$CINEMATESTING_PVBATCH
+filedriver=$CINEMATESTING_FILEDRIVER
 browser=$CINEMATESTING_BROWSER
 
 echo "Local definitions:"
@@ -38,6 +40,10 @@ echo "  two view static camera ..."
 $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
 echo "  two view phi-theta camera ..."
 $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+
+echo "Running catalyst tests ..."
+echo "  static camera ..."
+mpirun -np 1 $pvbatch -sym $filedriver "$FILE" catalyst_test/test_cdb_static_camera_catalyst.py
 
 echo "Inspecting results ..."
 open -a $browser cinema_compare.html
