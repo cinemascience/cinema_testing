@@ -22,7 +22,7 @@
   <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
   <pqevent object="pqClientMainWindow/SaveScreenshotDialog/widget/OKButton" command="activate" arguments="" />
 
-  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/RootDirectory/RootDirectory" command="set_string" arguments="data/test_cdb_phi_theta.cdb" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/RootDirectory/RootDirectory" command="set_string" arguments="data/interactive/test_cdb_phi_theta.cdb" />
 
   <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionExportCatalyst" />
   <pqevent object="pqClientMainWindow/menubar/menu_Catalyst/ExportCoprocessingStateFileDialog" command="filesSelected" arguments="data/test_cdb_phi_theta.py" />

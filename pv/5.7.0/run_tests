@@ -33,7 +33,10 @@ echo "  Browser : ${browser}"
 echo ""
 
 echo "Deleting data ..."
-rm -rf data/test_*
+rm -rf data/interactive
+rm -rf data/batch
+mkdir data/interactive
+mkdir data/batch
 
 if [ $run_interactive ]; then
     echo "Running tests ..."
