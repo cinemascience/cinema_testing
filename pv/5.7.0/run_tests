@@ -39,7 +39,7 @@ rm -rf data/test_*
 mkdir data/interactive
 mkdir data/batch
 
-if [ $run_interactive ]; then
+if $run_interactive ; then
     echo "Running tests ..."
     echo "  static camera ..."
     $paraview --test-script=test/test_cdb_static_camera.xml --exit
@@ -53,7 +53,7 @@ else
     echo "NOT running INTERACTIVE  tests ..."
 fi
 
-if [ $run_batch ]; then
+if $run_batch ; then
     echo "Running catalyst tests ..."
     echo "  static camera ..."
     mpirun -np 1 $pvbatch -sym $filedriver "$FILE" catalyst_test/test_cdb_static_camera_catalyst.py
