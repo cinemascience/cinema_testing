@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# settings
+run_interactive=true
+run_batch=false
+
 echo "sourcing local settings ..."
 FILE="myenv.env"
 if [ -f $FILE ]; then
@@ -31,19 +35,27 @@ echo ""
 echo "Deleting data ..."
 rm -rf data/test_*
 
-echo "Running tests ..."
-echo "  static camera ..."
-$paraview --test-script=test/test_cdb_static_camera.xml --exit
-echo "  phi-theta camera ..."
-$paraview --test-script=test/test_cdb_phi_theta.xml --exit
-echo "  two view static camera ..."
-$paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
-echo "  two view phi-theta camera ..."
-$paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+if [ $run_interactive ]; then
+    echo "Running tests ..."
+    echo "  static camera ..."
+    $paraview --test-script=test/test_cdb_static_camera.xml --exit
+    echo "  phi-theta camera ..."
+    $paraview --test-script=test/test_cdb_phi_theta.xml --exit
+    echo "  two view static camera ..."
+    $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
+    echo "  two view phi-theta camera ..."
+    $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+else
+    echo "NOT running INTERACTIVE  tests ..."
+fi
 
-echo "Running catalyst tests ..."
-echo "  static camera ..."
-mpirun -np 1 $pvbatch -sym $filedriver "$FILE" catalyst_test/test_cdb_static_camera_catalyst.py
+if [ $run_batch ]; then
+    echo "Running catalyst tests ..."
+    echo "  static camera ..."
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" catalyst_test/test_cdb_static_camera_catalyst.py
+else
+    echo "NOT running BATCH tests ..."
+fi
 
 echo "Inspecting results ..."
 open -a $browser cinema_compare.html
