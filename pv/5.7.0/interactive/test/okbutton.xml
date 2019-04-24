@@ -1,5 +1,0 @@
-<?xml version="1.0" ?>
-<pqevents>
-  <pqevent object="pqClientMainWindow/FileLoadServerStateDialog" command="filesSelected" arguments="/Users/dhr/LANL/git/gitlab.kitware.com/test/test/time_source.pvsm" />
-  <pqevent object="LoadStateOptionsDialog/widget/OKButton" command="activate" arguments="" />
-</pqevents>
