@@ -13,7 +13,9 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
 
 | Test | CDB | Camera |
 |------|-----|--------|
-| test_cdb_static_camera | images | static |
-| test_cdb_phi_theta | images | phi-theta |
+| ``test_cdb_static_camera`` | images | static |
+| ``test_cdb_phi_theta`` | images | phi_theta |
+| ``test_cdb_twoview_static`` | images, images | static |
+| ``test_cdb_twoview_phi_theta`` | images, images | phi_theta |
 
 
