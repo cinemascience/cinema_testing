@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo "sourcing local settings ..."
+FILE="myenv.env"
+if [ -f $FILE ]; then
+    echo "File $FILE exists."
+    source myenv.env
+else
+    echo "File $FILE does not exist, cannot continue"
+    exit
+fi
+FILE="test/can.ex2"
+if [ -f $FILE ]; then
+    echo "File $FILE exists."
+else
+    echo "File $FILE does not exist, cannot continue"
+    exit
+fi
+
+
+paraview=$CINEMATESTING_PARAVIEW
+browser=$CINEMATESTING_BROWSER
+
+echo "Local definitions:"
+echo "  Paraview: ${paraview}"
+echo "  Browser : ${browser}"
+echo ""
+
+echo "Deleting data ..."
+rm -rf data/test_*
+
+echo "Running tests ..."
+echo "  static camera ..."
+$paraview --test-script=test/test_cdb_static_camera.xml --exit
+echo "  phi theta camera ..."
+$paraview --test-script=test/test_cdb_phi_theta.xml     --exit
+
+echo "Inspecting results ..."
+open -a $browser cinema_compare.html
+open -a $browser cinema_explorer.html
