@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "sourcing local settings ..."
+FILE="myenv.env"
+if [ -f $FILE ]; then
+    echo "File $FILE exists."
+    source myenv.env
+else
+    echo "File $FILE does not exist, cannot continue"
+    exit
+fi
+
+
+$CINEMATESTING_PARAVIEW

@@ -15,6 +15,8 @@
   <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/SaveDTable/CheckBox" command="set_boolean" arguments="true" />
   <pqevent object="pqClientMainWindow/catalystInspectorDock/CatalystExportInspector/container/1pqProxyWidget0/RootDirectory/RootDirectory" command="set_string" arguments="data/test_cdb_static_camera.cdb" />
 
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst/ExportCoprocessingStateFileDialog" command="filesSelected" arguments="test/test_cdb_static_camera.py" />
+
   <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menu_Catalyst" />
   <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionExportImmediate" />
 </pqevents>
