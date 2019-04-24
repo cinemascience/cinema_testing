@@ -10,5 +10,9 @@
 	{
 		"name"      : "test_cdb_twoviews_static_camera",
 		"directory" : "data/test_cdb_twoviews_static_camera.cdb"
+	},
+	{
+		"name"      : "test_cdb_twoviews_phi_theta",
+		"directory" : "data/test_cdb_twoviews_phi_theta.cdb"
 	}
 ]
