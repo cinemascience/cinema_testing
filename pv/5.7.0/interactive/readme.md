@@ -12,11 +12,11 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
 
 ### Tests
 
-| Test | CDB | Camera | Notes |
-|------|-----|--------|-------|
-| ``test_cdb_static_camera`` | images | static | one view |
-| ``test_cdb_phi_theta`` | images | phi_theta | one view |
-| ``test_cdb_twoview_static`` | images, images | static | two views|
-| ``test_cdb_twoview_phi_theta`` | images, images | phi_theta | two views|
+| Pass | Test | CDB | Camera | Notes |
+|:----:|------|-----|--------|-------|
+| x | ``test_cdb_static_camera`` | images | static | one view |
+| x | ``test_cdb_phi_theta`` | images | phi_theta | one view |
+|  | ``test_cdb_twoview_static`` | images, images | static | two views|
+|  | ``test_cdb_twoview_phi_theta`` | images, images | phi_theta | two views|
 
 
