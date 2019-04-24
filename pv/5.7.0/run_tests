@@ -35,6 +35,7 @@ echo ""
 echo "Deleting data ..."
 rm -rf data/interactive
 rm -rf data/batch
+rm -rf data/test_*
 mkdir data/interactive
 mkdir data/batch
 

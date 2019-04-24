@@ -1,4 +1,6 @@
 #!/bin/bash
 
 echo "Deleting data ..."
+rm -rf data/interactive
+rm -rf data/batch
 rm -rf data/test_*
