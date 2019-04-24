@@ -25,7 +25,7 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
 | + | ``test_cdb_static_camera`` | images | static | |
 | + | ``test_cdb_phi_theta`` | images | phi_theta | |
 | - | ``test_cdb_twoview_static`` | images, images | static | [``data.csv``](results/twoviews.csv) does not distinguish between images from two views |
-|   | ``test_cdb_twoview_phi_theta`` | images, images | phi_theta | [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views |
+| - | ``test_cdb_twoview_phi_theta`` | images, images | phi_theta | [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views |
 
 
 ### Catalyst Tests
