@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Deleting data ..."
+rm -rf data/test_*
