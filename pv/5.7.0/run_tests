@@ -2,7 +2,7 @@
 
 # settings to control internal logic
 run_interactive=true
-run_batch=true
+run_batch=false
 
 echo "sourcing local settings ..."
 FILE="myenv.env"
@@ -72,5 +72,13 @@ else
 fi
 
 echo "Inspecting results ..."
-open -a $browser cinema_explorer.html
-open -a $browser cinema_compare.html
+case "$OSTYPE" in
+  darwin*)
+        open -a $browser cinema_explorer.html
+        open -a $browser cinema_compare.html;;
+  solaris*) echo "Cannot view results" ;;
+  linux*)   echo "Cannot view results" ;;
+  bsd*)     echo "Cannot view results" ;;
+  msys*)    echo "Cannot view results" ;;
+  *)        echo "unknown: $OSTYPE" ;;
+esac
