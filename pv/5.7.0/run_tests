@@ -2,7 +2,7 @@
 
 # settings to control internal logic
 run_interactive=true
-run_batch=false
+run_batch=true
 
 echo "sourcing local settings ..."
 FILE="myenv.env"
@@ -21,45 +21,51 @@ else
     exit
 fi
 
-
 paraview=$CINEMATESTING_PARAVIEW
 pvbatch=$CINEMATESTING_PVBATCH
 filedriver=$CINEMATESTING_FILEDRIVER
 browser=$CINEMATESTING_BROWSER
 
 echo "Local definitions:"
-echo "  Paraview: ${paraview}"
-echo "  Browser : ${browser}"
+echo "  Paraview   : ${paraview}"
+echo "  pvbatch    : ${pvbatch}"
+echo "  filedriver : ${filedriver}"
+echo "  Browser    : ${browser}"
 echo ""
 
-echo "Deleting data ..."
-rm -rf data/interactive
-rm -rf data/batch
-rm -rf data/test_*
-mkdir data/interactive
-mkdir data/batch
+# delete any previous data
+./clean
 
 if $run_interactive ; then
-    echo "Running GEOMETRY tests ..."
+    echo "Running interactive GEOMETRY tests ..."
     echo "  geometry ..."
     $paraview --test-script=test/test_cdb_geom.xml --exit
     echo "  geometry and images ..."
     $paraview --test-script=test/test_cdb_geom_and_images.xml --exit
-    # echo "Running IMAGE tests ..."
-    # echo "  static camera ..."
-    # $paraview --test-script=test/test_cdb_static_camera.xml --exit
-    # echo "  phi-theta camera ..."
-    # $paraview --test-script=test/test_cdb_phi_theta.xml --exit
-    # echo "  two view static camera ..."
-    # $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
-    # echo "  two view phi-theta camera ..."
-    # $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+
+    echo "Running interactive IMAGE tests ..."
+    echo "  static camera ..."
+    $paraview --test-script=test/test_cdb_static_camera.xml --exit
+    echo "  phi-theta camera ..."
+    $paraview --test-script=test/test_cdb_phi_theta.xml --exit
+    echo "  two view static camera ..."
+    $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
+    echo "  two view phi-theta camera ..."
+    $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
 else
     echo "NOT running INTERACTIVE  tests ..."
 fi
 
 if $run_batch ; then
-    echo "Running tests ..."
+    echo "Running batch GEOMETRY tests ..."
+    echo "  geometry ..."
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_geom.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_geom.py
+    echo "  geometry and images ..."
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_geom_and_images.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_geom_and_images.py
+
+    echo "Running batch IMAGE tests ..."
     echo "  static camera ..."
     sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_static_camera.py
     mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_static_camera.py

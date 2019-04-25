@@ -1,42 +1,50 @@
 [
 	{
-		"name"      : "test_cdb_geom",
+		"name"      : "inter test_cdb_geom",
 		"directory" : "data/interactive/test_cdb_geom.cdb"
 	},
 	{
-		"name"      : "test_cdb_geom_and_images",
+		"name"      : "inter test_cdb_geom_and_images",
 		"directory" : "data/interactive/test_cdb_geom_and_images.cdb"
 	},
 	{
-		"name"      : "test_cdb_phi_theta",
+		"name"      : "inter test_cdb_phi_theta",
 		"directory" : "data/interactive/test_cdb_phi_theta.cdb"
 	},
 	{
-		"name"      : "test_cdb_static_camera",
+		"name"      : "inter test_cdb_static_camera",
 		"directory" : "data/interactive/test_cdb_static_camera.cdb"
 	},
 	{
-		"name"      : "test_cdb_twoviews_phi_theta",
+		"name"      : "inter test_cdb_twoviews_phi_theta",
 		"directory" : "data/interactive/test_cdb_twoviews_phi_theta.cdb"
 	},
 	{
-		"name"      : "test_cdb_twoviews_static_camera",
+		"name"      : "inter test_cdb_twoviews_static_camera",
 		"directory" : "data/interactive/test_cdb_twoviews_static_camera.cdb"
 	},
 	{
-		"name"      : "test_cdb_phi_theta_catalyst",
+		"name"      : "batch test_cdb_geom",
+		"directory" : "data/batch/test_cdb_geom.cdb"
+	},
+	{
+		"name"      : "batch test_cdb_geom_and_images",
+		"directory" : "data/batch/test_cdb_geom_and_images.cdb"
+	},
+	{
+		"name"      : "batch test_cdb_phi_theta",
 		"directory" : "data/batch/test_cdb_phi_theta.cdb"
 	},
 	{
-		"name"      : "test_cdb_static_camera_catalyst",
+		"name"      : "batch test_cdb_static_camera",
 		"directory" : "data/batch/test_cdb_static_camera.cdb"
 	},
 	{
-		"name"      : "test_cdb_twoviews_phi_theta_catalyst",
+		"name"      : "batch test_cdb_twoviews_phi_theta",
 		"directory" : "data/batch/test_cdb_twoviews_phi_theta.cdb"
 	},
 	{
-		"name"      : "test_cdb_twoviews_static_camera_catalyst",
+		"name"      : "batch test_cdb_twoviews_static_camera",
 		"directory" : "data/batch/test_cdb_twoviews_static_camera.cdb"
 	}
 ]

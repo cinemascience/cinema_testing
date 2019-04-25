@@ -24,6 +24,7 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 |x|Interactive test: Two views static camera [``data.csv``](results/twoviews.csv) does not distinguish between images from two views|
 |x|Interactive test: Two views phi theta camera [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views|
 |x|Output from running ``File->Export Now`` and catalyst scripts should be identical. In practice, the catalyst run includes a ``cinema`` directory in the image path. These should be identical.|
+| |cinema\\info.json file appears during some test. Need to determine which test produces this|
 
 ### Interactive Tests
 
