@@ -17,8 +17,8 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
 | Filed | Bug |
 |:-----:|-----|
 |x|ParaView's exported ``data.csv`` final column should be ``FILE`` instead of ``FILES``|
-| |Interactive test: Two views static camera [``data.csv``](results/twoviews.csv) does not distinguish between images from two views|
-| |Interactive test: Two views phi theta camera [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views|
+|x|Interactive test: Two views static camera [``data.csv``](results/twoviews.csv) does not distinguish between images from two views|
+|x|Interactive test: Two views phi theta camera [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views|
 | |Output from running ``File->Export Now`` and catalyst scripts should be identical. In practice, the catalyst run includes a ``cinema`` directory in the image path. These should be identical.|
 
 ### Interactive Tests
