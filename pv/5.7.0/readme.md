@@ -2,7 +2,7 @@
 
 These tests take advantage of ParaView's UI and Catalyst testing framework to run a set of Cinema database tests. To run these tests:
 
-1. clone this repository
+1. Clone this repository
 2. Edit a file called ``myenv.env`` in this directory, and define two environment variables:
     - ``CINEMATESTING_PARAVIEW`` This is the location of your ParaView executable
     - ``CINEMATESTING_PVBATCH``  This is the location of your pvbatch executable
