@@ -1,6 +1,6 @@
 ### Running tests
 
-These tests take advantage of ParaView's UI testing framework to run a set of Cinema database tests.
+These tests take advantage of ParaView's UI and Catalyst testing framework to run a set of Cinema database tests.
 
 1. Edit a file called ``myenv.env`` in this directory, and define two environment variables:
     - ``CINEMATESTING_PARAVIEW`` This is the location of your ParaView executable
