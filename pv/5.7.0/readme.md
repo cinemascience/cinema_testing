@@ -42,6 +42,8 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 
 | Pass   | Test                                      | CDB              | Camera      | Notes                                                                                                                                      |
 | :----: | ----------------------------------------- | ---------------- | ----------- | -----------                                                                                                                                |
+|        | ``test_cdb_geom``                         | geom             | static      | Runs; output to be checked |
+|        | ``test_cdb_geom_and_images``              | geom, images     | static      | Runs; output to be checked | 
 | -      | ``test_cdb_static_camera_catalyst``       | images           | static      | Succeeds but adds unneeded cinema directory.                                                                                               |
 | -      | ``test_cdb_phi_theta_catalyst``           | images           | phi_theta   | Succeeds but adds unneeded cinema directory.                                                                                               |
 | -      | ``test_cdb_twoview_static_catalyst``      | images, images   | static      | Succeeds but adds unneeded cinema directory. DOES differentiate between the two views: [``data.csv``](results/batch_twoviews.csv)          |
