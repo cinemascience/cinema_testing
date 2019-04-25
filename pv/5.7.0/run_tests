@@ -2,7 +2,7 @@
 
 # settings to control internal logic
 run_interactive=true
-run_batch=false
+run_batch=true
 
 echo "sourcing local settings ..."
 FILE="myenv.env"
@@ -54,13 +54,23 @@ else
 fi
 
 if $run_batch ; then
-    echo "Running catalyst tests ..."
+    echo "Running tests ..."
     echo "  static camera ..."
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" catalyst_test/test_cdb_static_camera_catalyst.py
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_static_camera.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_static_camera.py
+    echo "  phi-theta camera ..."
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_phi_theta.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_phi_theta.py
+    echo "  two view static camera ..."
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_twoviews_static_camera.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_twoviews_static_camera.py
+    echo "  two view phi-theta camera ..."
+    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_twoviews_phi_theta.py
+    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_twoviews_phi_theta.py
 else
-    echo "NOT running BATCH tests ..."
+    echo "NOT running INTERACTIVE  tests ..."
 fi
 
 echo "Inspecting results ..."
-open -a $browser cinema_compare.html
 open -a $browser cinema_explorer.html
+open -a $browser cinema_compare.html
