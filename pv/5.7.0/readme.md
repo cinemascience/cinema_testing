@@ -30,10 +30,10 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 
 | Pass | Test | CDB |Views| Camera | Notes |
 |:----:|------|-----|:---:|--------|-------|
-| + | ``test_cdb_geom`` | geom |1| none | |
-| + | ``test_cdb_geom_and_images`` | geom, images |1| static | |
-| + | ``test_cdb_static_camera`` | images |1| static | |
-| + | ``test_cdb_phi_theta`` | images |1| phi_theta | |
+| + | ``test_cdb_geom`` | geom |1| none | Change ``FILES`` to ``FILE`` |
+| + | ``test_cdb_geom_and_images`` | geom, images |1| static | Change ``FILES`` to ``FILE`` |
+| + | ``test_cdb_static_camera`` | images |1| static | Change ``FILES`` to ``FILE`` |
+| + | ``test_cdb_phi_theta`` | images |1| phi_theta | Change ``FILES`` to ``FILE`` |
 | - | ``test_cdb_twoview_static`` | images, images |2| static | [``data.csv``](results/twoviews.csv) does not distinguish between images from two views |
 | - | ``test_cdb_twoview_phi_theta`` | images, images |2| phi_theta | [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views |
 
