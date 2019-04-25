@@ -40,15 +40,20 @@ mkdir data/interactive
 mkdir data/batch
 
 if $run_interactive ; then
-    echo "Running tests ..."
-    echo "  static camera ..."
-    $paraview --test-script=test/test_cdb_static_camera.xml --exit
-    echo "  phi-theta camera ..."
-    $paraview --test-script=test/test_cdb_phi_theta.xml --exit
-    echo "  two view static camera ..."
-    $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
-    echo "  two view phi-theta camera ..."
-    $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+    echo "Running GEOMETRY tests ..."
+    echo "  geometry ..."
+    $paraview --test-script=test/test_cdb_geom.xml --exit
+    echo "  geometry and images ..."
+    $paraview --test-script=test/test_cdb_geom_and_images.xml --exit
+    # echo "Running IMAGE tests ..."
+    # echo "  static camera ..."
+    # $paraview --test-script=test/test_cdb_static_camera.xml --exit
+    # echo "  phi-theta camera ..."
+    # $paraview --test-script=test/test_cdb_phi_theta.xml --exit
+    # echo "  two view static camera ..."
+    # $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
+    # echo "  two view phi-theta camera ..."
+    # $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
 else
     echo "NOT running INTERACTIVE  tests ..."
 fi

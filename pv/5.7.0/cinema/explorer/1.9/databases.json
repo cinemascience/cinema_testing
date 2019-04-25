@@ -1,5 +1,13 @@
 [
 	{
+		"name"      : "test_cdb_geom",
+		"directory" : "data/interactive/test_cdb_geom.cdb"
+	},
+	{
+		"name"      : "test_cdb_geom_and_images",
+		"directory" : "data/interactive/test_cdb_geom_and_images.cdb"
+	},
+	{
 		"name"      : "test_cdb_phi_theta",
 		"directory" : "data/interactive/test_cdb_phi_theta.cdb"
 	},
