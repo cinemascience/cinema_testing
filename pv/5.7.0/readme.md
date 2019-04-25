@@ -13,6 +13,7 @@ These tests take advantage of ParaView's UI testing framework to run a set of Ci
 3. Type ``./run_tests`` and the test script will run. It will open ``ParaView``, create outputs, check those, and open viewers on the resulting databases.
 
 ### Bugs
+NOTE: 'Filed' column records whether or not the issue has been filed at github.kitware.org.
 
 | Filed | Bug |
 |:-----:|-----|
