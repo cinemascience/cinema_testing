@@ -40,6 +40,7 @@ echo ""
 # -------------------------------------------------------------------------
 run_interactive=true
 run_batch=true
+clean=true
 tests=(
     "test_cdb_geom"
     "test_cdb_geom_and_images"
@@ -52,7 +53,9 @@ tests=(
 
 # delete any previous data
 # -------------------------------------------------------------------------
-./clean
+if $clean ; then
+    ./clean
+fi
 
 
 # Run all tests
