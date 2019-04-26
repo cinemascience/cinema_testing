@@ -1,31 +1,33 @@
 #!/bin/bash
 
-# settings to control internal logic
-run_interactive=true
-run_batch=true
-
-echo "sourcing local settings ..."
-FILE="myenv.env"
-if [ -f $FILE ]; then
-    echo "File $FILE exists."
+# get definitions from local files and check before running
+# -------------------------------------------------------------------------
+echo "Sourcing local settings ..."
+ENVFILE="myenv.env"
+if [ -f $ENVFILE ]; then
+    echo "File $ENVFILE exists."
     source myenv.env
 else
-    echo "File $FILE does not exist, cannot continue"
-    exit
-fi
-FILE="test/can.ex2"
-if [ -f $FILE ]; then
-    echo "File $FILE exists."
-else
-    echo "File $FILE does not exist, cannot continue"
+    echo "File $ENVFILE does not exist, cannot continue"
     exit
 fi
 
+# Data set
+echo "Checking for test data ..."
+CANFILE="test/can.ex2"
+if [ -f $CANFILE ]; then
+    echo "File $CANFILE exists."
+else
+    echo "File $CANFILE does not exist, cannot continue"
+    exit
+fi
+
+# Define the local executables, etc.
+# -------------------------------------------------------------------------
 paraview=$CINEMATESTING_PARAVIEW
 pvbatch=$CINEMATESTING_PVBATCH
 filedriver=$CINEMATESTING_FILEDRIVER
 browser=$CINEMATESTING_BROWSER
-
 echo "Local definitions:"
 echo "  Paraview   : ${paraview}"
 echo "  pvbatch    : ${pvbatch}"
@@ -33,55 +35,57 @@ echo "  filedriver : ${filedriver}"
 echo "  Browser    : ${browser}"
 echo ""
 
+# Define the tests to run
+# Comment out any that should not run
+# -------------------------------------------------------------------------
+run_interactive=true
+run_batch=true
+tests=(
+    "test_cdb_geom"
+    "test_cdb_geom_and_images"
+    "test_cdb_phi_theta"
+    "test_cdb_static_camera"
+    "test_cdb_twoviews_static_camera"
+    "test_cdb_twoviews_phi_theta"
+)
+
+
 # delete any previous data
+# -------------------------------------------------------------------------
 ./clean
 
+
+# Run all tests
+# -------------------------------------------------------------------------
+
+# Interactive tests
 if $run_interactive ; then
-    echo "Running interactive GEOMETRY tests ..."
-    echo "  geometry ..."
-    $paraview --test-script=test/test_cdb_geom.xml --exit
-    echo "  geometry and images ..."
-    $paraview --test-script=test/test_cdb_geom_and_images.xml --exit
-
-    echo "Running interactive IMAGE tests ..."
-    echo "  static camera ..."
-    $paraview --test-script=test/test_cdb_static_camera.xml --exit
-    echo "  phi-theta camera ..."
-    $paraview --test-script=test/test_cdb_phi_theta.xml --exit
-    echo "  two view static camera ..."
-    $paraview --test-script=test/test_cdb_twoviews_static_camera.xml --exit
-    echo "  two view phi-theta camera ..."
-    $paraview --test-script=test/test_cdb_twoviews_phi_theta.xml --exit
+    echo "Running INTERACTIVE tests ..."
+    for i in "${tests[@]}"
+    do
+        echo "  $i.xml"
+        $paraview --test-script=test/$i.xml --exit
+    done
 else
     echo "NOT running INTERACTIVE  tests ..."
 fi
 
+# Batch tests
 if $run_batch ; then
-    echo "Running batch GEOMETRY tests ..."
-    echo "  geometry ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_geom.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_geom.py
-    echo "  geometry and images ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_geom_and_images.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_geom_and_images.py
-
-    echo "Running batch IMAGE tests ..."
-    echo "  static camera ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_static_camera.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_static_camera.py
-    echo "  phi-theta camera ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_phi_theta.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_phi_theta.py
-    echo "  two view static camera ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_twoviews_static_camera.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_twoviews_static_camera.py
-    echo "  two view phi-theta camera ..."
-    sed -i '' "s/'can.ex2'/'input'/g" data/test_cdb_twoviews_phi_theta.py
-    mpirun -np 1 $pvbatch -sym $filedriver "$FILE" data/test_cdb_twoviews_phi_theta.py
+    echo "Running BATCH tests ..."
+    for i in "${tests[@]}"
+    do
+        echo "  $i.xml"
+        # sed -i '' "s/can\.ex2/input/g" data/$i.py
+        sed -i '' "s/'can.ex2'/'input'/g" data/$i.py
+        mpirun -np 1 $pvbatch -sym $filedriver "$CANFILE" data/$i.py
+    done
 else
     echo "NOT running INTERACTIVE  tests ..."
 fi
 
+# Inspect the results
+# -------------------------------------------------------------------------
 echo "Inspecting results ..."
 case "$OSTYPE" in
   darwin*)
@@ -93,3 +97,6 @@ case "$OSTYPE" in
   msys*)    echo "Cannot view results" ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
+
+echo "Completed tests"
+echo " "
