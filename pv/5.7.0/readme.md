@@ -18,13 +18,14 @@ These tests take advantage of ParaView's UI and Catalyst testing framework to ru
 ### Bugs
 NOTE: 'Filed' column records whether or not the issue has been filed at github.kitware.org.
 
-| Filed | Bug |
-|:-----:|-----|
-|x|ParaView's exported ``data.csv`` final column should be ``FILE`` instead of ``FILES``|
-|x|Interactive test: Two views static camera [``data.csv``](results/twoviews.csv) does not distinguish between images from two views|
-|x|Interactive test: Two views phi theta camera [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views|
-|x|Output from running ``File->Export Now`` and catalyst scripts should be identical. In practice, the catalyst run includes a ``cinema`` directory in the image path. These should be identical.|
-| |cinema\\info.json file appears during some test. Need to determine which test produces this|
+| Filed   | Bug                                                                                                                                                                                            |
+| :-----: | -----                                                                                                                                                                                          |
+| x       | ParaView's exported ``data.csv`` final column should be ``FILE`` instead of ``FILES``                                                                                                          |
+| x       | Interactive test: Two views static camera [``data.csv``](results/twoviews.csv) does not distinguish between images from two views                                                              |
+| x       | Interactive test: Two views phi theta camera [``data.csv``](results/twoviews_phitheta.csv) does not distinguish between images from two views                                                  |
+| x       | Output from running ``File->Export Now`` and catalyst scripts should be identical. In practice, the catalyst run includes a ``cinema`` directory in the image path. These should be identical. |
+|         | cinema\\info.json file appears during some test. Need to determine which test produces this                                                                                                    |
+| x       | Data extracts with a "." in the pipeline name cause an error in Catalyst scripts                                                                                                               |
 
 ### Interactive Tests
 
@@ -42,8 +43,8 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 
 | Pass   | Test                                      | CDB              | Camera      | Notes                                                                                                                                      |
 | :----: | ----------------------------------------- | ---------------- | ----------- | -----------                                                                                                                                |
-|        | ``test_cdb_geom``                         | geom             | static      | Runs; output to be checked |
-|        | ``test_cdb_geom_and_images``              | geom, images     | static      | Runs; output to be checked | 
+| -      | ``test_cdb_geom``                         | geom             | static      | Error caused by can.ex2 in pipeline: Issue submitted                                                                                       |
+| -      | ``test_cdb_geom_and_images``              | geom, images     | static      | Error caused by can.ex2 in pipeline: Issue submitted                                                                                       |
 | -      | ``test_cdb_static_camera_catalyst``       | images           | static      | Succeeds but adds unneeded cinema directory.                                                                                               |
 | -      | ``test_cdb_phi_theta_catalyst``           | images           | phi_theta   | Succeeds but adds unneeded cinema directory.                                                                                               |
 | -      | ``test_cdb_twoview_static_catalyst``      | images, images   | static      | Succeeds but adds unneeded cinema directory. DOES differentiate between the two views: [``data.csv``](results/batch_twoviews.csv)          |
