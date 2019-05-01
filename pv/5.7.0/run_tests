@@ -81,6 +81,8 @@ if $run_batch ; then
         echo "  $i.xml"
         # sed -i '' "s/can\.ex2/input/g" data/$i.py
         sed -i '' "s/'can.ex2'/'input'/g" data/$i.py
+        # Temporary fix for paraview issue #18979
+        sed -i '' "s/Input=can.ex2/Input=canex2/g" data/$i.py
         mpirun -np 1 $pvbatch -sym $filedriver "$CANFILE" data/$i.py
     done
 else
