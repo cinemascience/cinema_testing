@@ -1,5 +1,21 @@
 [
 	{
+		"name" : "interactive test_cdb_geom.cdb",
+		"directory" : "data/interactive/test_cdb_geom.cdb"
+	},
+	{
+		"name" : "batch test_cdb_geom.cdb",
+		"directory" : "data/batch/test_cdb_geom.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_geom_and_images.cdb",
+		"directory" : "data/interactive/test_cdb_geom_and_images.cdb"
+	},
+	{
+		"name" : "batch test_cdb_geom_and_images.cdb",
+		"directory" : "data/batch/test_cdb_geom_and_images.cdb"
+	},
+	{
 		"name" : "interactive test_cdb_phi_theta.cdb",
 		"directory" : "data/interactive/test_cdb_phi_theta.cdb"
 	},
