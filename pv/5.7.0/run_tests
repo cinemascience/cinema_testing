@@ -45,9 +45,9 @@ run_inspect=true
 tests=(
     # "test_cdb_geom"
     # "test_cdb_geom_and_images"
-    # "test_cdb_phi_theta"
+    "test_cdb_phi_theta"
     "test_cdb_static_camera"
-    # "test_cdb_twoviews_static_camera"
+    "test_cdb_twoviews_static_camera"
     # "test_cdb_twoviews_phi_theta"
 )
 

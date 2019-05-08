@@ -1,10 +1,26 @@
 [
 	{
+		"name" : "interactive test_cdb_phi_theta.cdb",
+		"directory" : "data/interactive/test_cdb_phi_theta.cdb"
+	},
+	{
+		"name" : "batch test_cdb_phi_theta.cdb",
+		"directory" : "data/batch/test_cdb_phi_theta.cdb"
+	},
+	{
 		"name" : "interactive test_cdb_static_camera.cdb",
 		"directory" : "data/interactive/test_cdb_static_camera.cdb"
 	},
 	{
 		"name" : "batch test_cdb_static_camera.cdb",
 		"directory" : "data/batch/test_cdb_static_camera.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_twoviews_static_camera.cdb",
+		"directory" : "data/interactive/test_cdb_twoviews_static_camera.cdb"
+	},
+	{
+		"name" : "batch test_cdb_twoviews_static_camera.cdb",
+		"directory" : "data/batch/test_cdb_twoviews_static_camera.cdb"
 	}
 ]
