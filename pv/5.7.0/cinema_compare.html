@@ -48,7 +48,7 @@
 
             // START: add code to manage databases to view 
             var dataSets = [
-                        "data/interactive/test_cdb_static_camera.cdb",
+                        "data/batch/test_cdb_static_camera.cdb"
                         ];
             // END:   add code to manage databases to view 
 
@@ -62,6 +62,7 @@
 				q.defer(d3.csv, item + "/data.csv");
 			});
 			q.awaitAll(function(error, results) {
+
 				var values = {};
 				results.forEach(function(item, index) {
 					var keys = Object.keys(item[0]).filter(function(d) {
@@ -72,11 +73,11 @@
 
 					item.forEach(function(result, index) {
 						keys.forEach(function(key, index) {
-							if (!(key in values)) {
-								values[key] = [];
-							}
+							    if (!(key in values)) {
+								    values[key] = [];
+							    }
 
-							values[key].push(result[key]);
+							    values[key].push(result[key]);
 						});
 
 						lookup[getLookupKey(keys, result)] = result;

@@ -41,13 +41,14 @@ echo ""
 run_interactive=true
 run_batch=true
 clean=true
+run_inspect=true
 tests=(
-    "test_cdb_geom"
-    "test_cdb_geom_and_images"
-    "test_cdb_phi_theta"
+    # "test_cdb_geom"
+    # "test_cdb_geom_and_images"
+    # "test_cdb_phi_theta"
     "test_cdb_static_camera"
-    "test_cdb_twoviews_static_camera"
-    "test_cdb_twoviews_phi_theta"
+    # "test_cdb_twoviews_static_camera"
+    # "test_cdb_twoviews_phi_theta"
 )
 
 
@@ -91,17 +92,19 @@ fi
 
 # Inspect the results
 # -------------------------------------------------------------------------
-echo "Inspecting results ..."
-case "$OSTYPE" in
-  darwin*)
-        open -a $browser cinema_explorer.html
-        open -a $browser cinema_compare.html;;
-  solaris*) echo "Cannot view results" ;;
-  linux*)   echo "Cannot view results" ;;
-  bsd*)     echo "Cannot view results" ;;
-  msys*)    echo "Cannot view results" ;;
-  *)        echo "unknown: $OSTYPE" ;;
-esac
+if $run_inspect ; then
+    echo "Inspecting results ..."
+    case "$OSTYPE" in
+      darwin*)
+            open -a $browser cinema_explorer.html
+            open -a $browser cinema_compare.html;;
+      solaris*) echo "Cannot view results" ;;
+      linux*)   echo "Cannot view results" ;;
+      bsd*)     echo "Cannot view results" ;;
+      msys*)    echo "Cannot view results" ;;
+      *)        echo "unknown: $OSTYPE" ;;
+    esac
+fi
 
 echo "Completed tests"
 echo " "
