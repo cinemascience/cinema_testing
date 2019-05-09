@@ -1,9 +1,17 @@
 #!/bin/bash
 
+# global variables
+ENVFILE="myenv.env"
+
+# evaluate command line args
+if [ "$#" -eq 1 ]; then
+    ENVFILE=$1
+fi
+
 # get definitions from local files and check before running
 # -------------------------------------------------------------------------
 echo "Sourcing local settings ..."
-ENVFILE="myenv.env"
+echo "    $ENVFILE"
 if [ -f $ENVFILE ]; then
     echo "File $ENVFILE exists."
     source myenv.env
@@ -44,11 +52,11 @@ clean=true
 run_inspect=false
 tests=(
     "test_cdb_geom"
-    "test_cdb_geom_and_images"
-    "test_cdb_phi_theta"
-    "test_cdb_static_camera"
-    "test_cdb_twoviews_static_camera"
-    "test_cdb_twoviews_phi_theta"
+    # "test_cdb_geom_and_images"
+    # "test_cdb_phi_theta"
+    # "test_cdb_static_camera"
+    # "test_cdb_twoviews_static_camera"
+    # "test_cdb_twoviews_phi_theta"
 )
 
 
