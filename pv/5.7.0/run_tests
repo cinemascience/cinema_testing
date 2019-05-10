@@ -36,28 +36,48 @@ paraview=$CINEMATESTING_PARAVIEW
 pvbatch=$CINEMATESTING_PVBATCH
 filedriver=$CINEMATESTING_FILEDRIVER
 browser=$CINEMATESTING_BROWSER
+
+# Define the tests to run
+# Comment out any that should not run
+# -------------------------------------------------------------------------
+clean=true
+run_interactive=true
+run_batch=true
+run_inspect=false
+run_check=false
+
+tests=(
+    # "test_cdb_geom"
+    # "test_cdb_geom_and_images"
+    # "test_cdb_phi_theta"
+    "test_cdb_static_camera"
+    # "test_cdb_twoviews_static_camera"
+    # "test_cdb_twoviews_phi_theta"
+)
+
+echo "--------------------------------------------------------------------------------"
+echo "Test state:"
+echo "--------------------------------------------------------------------------------"
 echo "Local definitions:"
 echo "  Paraview   : ${paraview}"
 echo "  pvbatch    : ${pvbatch}"
 echo "  filedriver : ${filedriver}"
 echo "  Browser    : ${browser}"
+echo "--------------------------------------------------------------------------------"
+echo "Tests:"
+for i in "${tests[@]}"
+do
+    echo "  $i"
+done
+echo "--------------------------------------------------------------------------------"
+echo "Directives:"
+echo "  clean           : $clean"
+echo "  run_interactive : $run_interactive"
+echo "  run_batch       : $run_batch"
+echo "  run_check       : $run_chec"
+echo "  run_inspect     : $run_inspect"
+echo "--------------------------------------------------------------------------------"
 echo ""
-
-# Define the tests to run
-# Comment out any that should not run
-# -------------------------------------------------------------------------
-run_interactive=true
-run_batch=true
-clean=true
-run_inspect=false
-tests=(
-    "test_cdb_geom"
-    # "test_cdb_geom_and_images"
-    # "test_cdb_phi_theta"
-    # "test_cdb_static_camera"
-    # "test_cdb_twoviews_static_camera"
-    # "test_cdb_twoviews_phi_theta"
-)
 
 
 # delete any previous data
@@ -75,7 +95,7 @@ if $run_interactive ; then
     echo "Running INTERACTIVE tests ..."
     for i in "${tests[@]}"
     do
-        echo "  $i.xml"
+        echo "test:  $i"
         $paraview --test-script=test/$i.xml --exit
     done
 else
@@ -87,7 +107,7 @@ if $run_batch ; then
     echo "Running BATCH tests ..."
     for i in "${tests[@]}"
     do
-        echo "  $i.xml"
+        echo "test: $i"
         # sed -i '' "s/can\.ex2/input/g" data/$i.py
         sed -i '' "s/'can.ex2'/'input'/g" data/$i.py
         # Temporary fix for paraview issue #18979
@@ -98,14 +118,23 @@ else
     echo "NOT running INTERACTIVE  tests ..."
 fi
 
+# look at results
+if $run_check ; then
+    echo "Checking results ..."
+    for i in "${tests[@]}"
+    do
+        echo "test: $i"
+        diff data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv 
+    done
+fi
+
 # Inspect the results
 # -------------------------------------------------------------------------
 if $run_inspect ; then
     echo "Inspecting results ..."
     case "$OSTYPE" in
       darwin*)
-            open -a $browser cinema_explorer.html
-            open -a $browser cinema_compare.html;;
+            open -a $browser cinema_explorer.html;;
       solaris*) echo "Cannot view results" ;;
       linux*)   echo "Cannot view results" ;;
       bsd*)     echo "Cannot view results" ;;
