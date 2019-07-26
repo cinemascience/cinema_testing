@@ -42,7 +42,7 @@ browser=$CINEMATESTING_BROWSER
 # -------------------------------------------------------------------------
 clean=true
 run_interactive=true
-run_batch=true
+run_batch=false
 run_inspect=false
 run_check=false
 
@@ -127,7 +127,7 @@ if $run_check ; then
     for i in "${tests[@]}"
     do
         echo "test: $i"
-        diff data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv 
+        diff data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv
     done
 fi
 
