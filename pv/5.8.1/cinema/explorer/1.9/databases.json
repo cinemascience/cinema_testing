@@ -1,0 +1,42 @@
+[
+	{
+		"name" : "interactive test_cdb_geom.cdb",
+		"directory" : "data/interactive/test_cdb_geom.cdb"
+	},
+	{
+		"name" : "batch test_cdb_geom.cdb",
+		"directory" : "data/batch/test_cdb_geom.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_geom_and_images.cdb",
+		"directory" : "data/interactive/test_cdb_geom_and_images.cdb"
+	},
+	{
+		"name" : "batch test_cdb_geom_and_images.cdb",
+		"directory" : "data/batch/test_cdb_geom_and_images.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_phi_theta.cdb",
+		"directory" : "data/interactive/test_cdb_phi_theta.cdb"
+	},
+	{
+		"name" : "batch test_cdb_phi_theta.cdb",
+		"directory" : "data/batch/test_cdb_phi_theta.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_static_camera.cdb",
+		"directory" : "data/interactive/test_cdb_static_camera.cdb"
+	},
+	{
+		"name" : "batch test_cdb_static_camera.cdb",
+		"directory" : "data/batch/test_cdb_static_camera.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_twoviews_static_camera.cdb",
+		"directory" : "data/interactive/test_cdb_twoviews_static_camera.cdb"
+	},
+	{
+		"name" : "batch test_cdb_twoviews_static_camera.cdb",
+		"directory" : "data/batch/test_cdb_twoviews_static_camera.cdb"
+	}
+]
