@@ -20,7 +20,7 @@
   <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/advanced" command="set_boolean" arguments="true" />
   <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/scrollArea_2/qt_scrollarea_viewport/container/1pqProxyWidget0/SaveDTable/CheckBox" command="set_boolean" arguments="true" />
 
-  <!-- export specific arrays --> 
+  <!-- export specific arrays -->
   <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/scrollArea_2/qt_scrollarea_viewport/container/1pqProxyWidget0/RequestSpecificArrays/CheckBox" command="set_boolean" arguments="true" />
 
   <!-- export cinema image database -->
@@ -29,10 +29,10 @@
 
   <!-- set camera divisions -->
   <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/viewConfigure" command="activate" arguments="" />
-  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraModel/ComboBox" command="activated" arguments="Phi-Theta" />
-  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraPhiDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
-  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
-  <pqevent object="pqClientMainWindow/SaveScreenshotDialog/widget/OKButton" command="activate" arguments="" />
+  <pqevent object="pqClientMainWindow/ExportImageOptionsDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraModel/ComboBox" command="activated" arguments="Phi-Theta" />
+  <pqevent object="pqClientMainWindow/ExportImageOptionsDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraPhiDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/ExportImageOptionsDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/Format/ProxySelectionWidget/frame/ChosenProxyWidget/CameraThetaDivisions/IntRangeWidget/LineEdit" command="set_string" arguments="5" />
+  <pqevent object="pqClientMainWindow/ExportImageOptionsDialog/widget/OKButton" command="activate" arguments="" />
 
   <!-- set root directory for batch export -->
   <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/scrollArea_2/qt_scrollarea_viewport/container/1pqProxyWidget0/RootDirectory/FileChooser/FileLineEdit" command="set_string" arguments="data/batch/test_cdb_phi_theta.cdb" />
