@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<pqevents>
+  <!-- load state -->
+  <pqevent object="pqClientMainWindow/menubar/menu_File" command="activate" arguments="actionFileLoadServerState" />
+  <pqevent object="pqClientMainWindow/FileLoadServerStateDialog" command="filesSelected" arguments="test/time_source_notimesteps.pvsm" />
+
+  <pqevent object="pqClientMainWindow/pipelineBrowserDock/pipelineBrowser" command="mousePress" arguments="1,1,0,68,12,/0:0/0:0" />
+  <pqevent object="pqClientMainWindow/pipelineBrowserDock/pipelineBrowser" command="mouseRelease" arguments="1,0,0,68,12,/0:0/0:0" />
+
+  <!-- activate catalyst export window -->
+  <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menu_Catalyst" />
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionCatalystConfigure" />
+
+  <!-- set for cinema export -->
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/viewFormat" command="activated" arguments="Cinema image database (*.cdb)" />
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/viewExtract" command="set_boolean" arguments="true" />
+
+  <!-- set root directory for batch export -->
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/scrollArea_2/qt_scrollarea_viewport/container/1pqProxyWidget0/RootDirectory/FileChooser/FileLineEdit" command="set_string" arguments="data/batch/test_cdb_notimesteps.cdb" />
+
+  <!-- export catalyst script -->
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionExportCatalyst" />
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst/ExportCoprocessingStateFileDialog" command="filesSelected" arguments="data/test_cdb_notimesteps.py" />
+
+  <!-- set root directory for interactive export -->
+  <pqevent object="pqClientMainWindow/catalystInspectorDock/ExportInspector/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/scrollArea_2/qt_scrollarea_viewport/container/1pqProxyWidget0/RootDirectory/FileChooser/FileLineEdit" command="set_string" arguments="data/interactive/test_cdb_notimesteps.cdb" />
+
+  <!-- export cinema database -->
+  <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menu_Catalyst" />
+  <pqevent object="pqClientMainWindow/menubar/menu_Catalyst" command="activate" arguments="actionExportImmediate" />
+</pqevents>

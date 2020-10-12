@@ -1,0 +1,150 @@
+#!/bin/bash
+
+# global variables
+ENVFILE="myenv.env"
+
+# evaluate command line args
+if [ "$#" -eq 1 ]; then
+    ENVFILE=$1
+fi
+
+# get definitions from local files and check before running
+# -------------------------------------------------------------------------
+echo "Sourcing local settings ..."
+echo "    $ENVFILE"
+if [ -f $ENVFILE ]; then
+    echo "File $ENVFILE exists."
+    source myenv.env
+else
+    echo "File $ENVFILE does not exist, cannot continue"
+    exit
+fi
+
+# Data set
+echo "Checking for test data ..."
+CANFILE="test/can.ex2"
+if [ -f $CANFILE ]; then
+    echo "File $CANFILE exists."
+else
+    echo "File $CANFILE does not exist, cannot continue"
+    exit
+fi
+
+# Define the local executables, etc.
+# -------------------------------------------------------------------------
+paraview=$CINEMATESTING_PARAVIEW
+pvbatch=$CINEMATESTING_PVBATCH
+filedriver=$CINEMATESTING_FILEDRIVER
+browser=$CINEMATESTING_BROWSER
+
+# Define the tests to run
+# Comment out any that should not run
+# -------------------------------------------------------------------------
+clean=true
+run_interactive=true
+run_batch=true
+run_inspect=true
+run_check=false
+
+tests=(
+    "test_cdb_notimesteps"
+    "test_cdb_geom"
+    "test_cdb_geom_and_images"
+    "test_cdb_phi_theta"
+    "test_cdb_static_camera"
+    "test_cdb_twoviews_static_camera"
+    "test_cdb_twoviews_phi_theta"
+)
+
+echo "--------------------------------------------------------------------------------"
+echo "Test state:"
+echo "--------------------------------------------------------------------------------"
+echo "Local definitions:"
+echo "  Paraview   : ${paraview}"
+echo "  pvbatch    : ${pvbatch}"
+echo "  filedriver : ${filedriver}"
+echo "  Browser    : ${browser}"
+echo "--------------------------------------------------------------------------------"
+echo "Tests:"
+for i in "${tests[@]}"
+do
+    echo "  $i"
+done
+echo "--------------------------------------------------------------------------------"
+echo "Directives:"
+echo "  clean           : $clean"
+echo "  run_interactive : $run_interactive"
+echo "  run_batch       : $run_batch"
+echo "  run_check       : $run_check"
+echo "  run_inspect     : $run_inspect"
+echo "--------------------------------------------------------------------------------"
+echo ""
+
+
+# delete any previous data
+# -------------------------------------------------------------------------
+if $clean ; then
+    ./clean
+fi
+
+
+# Run all tests
+# -------------------------------------------------------------------------
+
+# Interactive tests
+if $run_interactive ; then
+    echo "Running INTERACTIVE tests ..."
+    for i in "${tests[@]}"
+    do
+        echo "test:  $i"
+        $paraview --test-script=test/$i.xml --exit
+    done
+else
+    echo "NOT running INTERACTIVE  tests ..."
+fi
+
+# Batch tests
+if $run_batch ; then
+    echo "Running BATCH tests ..."
+    for i in "${tests[@]}"
+    do
+        echo "test: $i"
+        if grep -q can.ex2 data/$i.py; then
+            # sed -i '' "s/can\.ex2/input/g" data/$i.py
+            sed -i '' "s/'can.ex2'/'input'/g" data/$i.py
+            # Temporary fix for paraview issue #18979
+            sed -i '' "s/Input=can.ex2/Input=canex2/g" data/$i.py
+        fi
+        mpirun -np 1 $pvbatch -sym $filedriver "$CANFILE" data/$i.py
+    done
+else
+    echo "NOT running INTERACTIVE  tests ..."
+fi
+
+# look at results
+if $run_check ; then
+    echo "Checking results ..."
+    for i in "${tests[@]}"
+    do
+        echo "test: $i"
+        diff data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv
+    done
+fi
+
+# Inspect the results
+# -------------------------------------------------------------------------
+if $run_inspect ; then
+    echo "Inspecting results ..."
+    case "$OSTYPE" in
+      darwin*)
+            open -a $browser cinema_explorer.html;;
+      solaris*) echo "Cannot view results" ;;
+      linux*)   echo "Cannot view results" ;;
+      bsd*)     echo "Cannot view results" ;;
+      msys*)    echo "Cannot view results" ;;
+      *)        echo "unknown: $OSTYPE" ;;
+    esac
+fi
+
+echo "Completed tests"
+echo " "
