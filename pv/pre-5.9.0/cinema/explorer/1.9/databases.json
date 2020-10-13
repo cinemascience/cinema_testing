@@ -1,5 +1,13 @@
 [
 	{
+		"name" : "interactive test_cdb_notimesteps.cdb",
+		"directory" : "data/interactive/test_cdb_notimesteps.cdb"
+	},
+	{
+		"name" : "batch test_cdb_notimesteps.cdb",
+		"directory" : "data/batch/test_cdb_notimesteps.cdb"
+	},
+	{
 		"name" : "interactive test_cdb_geom.cdb",
 		"directory" : "data/interactive/test_cdb_geom.cdb"
 	},
@@ -38,5 +46,13 @@
 	{
 		"name" : "batch test_cdb_twoviews_static_camera.cdb",
 		"directory" : "data/batch/test_cdb_twoviews_static_camera.cdb"
+	},
+	{
+		"name" : "interactive test_cdb_twoviews_phi_theta.cdb",
+		"directory" : "data/interactive/test_cdb_twoviews_phi_theta.cdb"
+	},
+	{
+		"name" : "batch test_cdb_twoviews_phi_theta.cdb",
+		"directory" : "data/batch/test_cdb_twoviews_phi_theta.cdb"
 	}
 ]
