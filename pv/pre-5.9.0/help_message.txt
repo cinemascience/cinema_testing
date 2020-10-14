@@ -1,0 +1,10 @@
+   -p | --paraview
+       Full path to paraview executable, e.g. `-p /Applications/ParaView-5.8.1.app/Contents/MacOS/paraview`
+   -b | --pvbatch
+       Full path to pvbatch executable, e.g. `-b /Applications/ParaView-5.8.1.app/Contents/bin/pvbatch`
+   -f | --filedriver
+       Full path to filedriver.py script (from paraview source repo) executable, e.g. `-f /home/projects/paraview/src/Examples/Catalyst/SampleScripts/filedriver.py`
+   -w | --web-browser
+       Web browser of choice (Firefox is recommended), e.g `-w firefox`
+   -h | --help
+       Display this help message

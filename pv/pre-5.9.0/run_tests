@@ -1,24 +1,35 @@
 #!/bin/bash
 
-# global variables
-ENVFILE="myenv.env"
-
-# evaluate command line args
-if [ "$#" -eq 1 ]; then
-    ENVFILE=$1
-fi
-
-# get definitions from local files and check before running
-# -------------------------------------------------------------------------
-echo "Sourcing local settings ..."
-echo "    $ENVFILE"
-if [ -f $ENVFILE ]; then
-    echo "File $ENVFILE exists."
-    source myenv.env
-else
-    echo "File $ENVFILE does not exist, cannot continue"
-    exit
-fi
+# parse arguments
+while [ "${1}" != "" ]; do
+    case ${1} in
+        -p | --paraview )
+            shift
+            paraview=${1}
+            ;;
+        -b | --pvbatch )
+            shift
+            pvbatch=${1}
+            ;;
+        -f | --filedriver )
+            shift
+            filedriver=${1}
+            ;;
+        -w | --web-browser )
+            shift
+            browser=${1}
+            ;;
+        -h | --help )
+            cat help_message.txt
+            exit 0
+            ;;
+        * )
+            echo "Could not parse ${1}!"
+            exit 1
+            ;;
+    esac
+    shift
+done
 
 # Data set
 echo "Checking for test data ..."
@@ -30,13 +41,6 @@ else
     exit
 fi
 
-# Define the local executables, etc.
-# -------------------------------------------------------------------------
-paraview=$CINEMATESTING_PARAVIEW
-pvbatch=$CINEMATESTING_PVBATCH
-filedriver=$CINEMATESTING_FILEDRIVER
-browser=$CINEMATESTING_BROWSER
-
 # Define the tests to run
 # Comment out any that should not run
 # -------------------------------------------------------------------------
@@ -44,7 +48,7 @@ clean=true
 run_interactive=true
 run_batch=true
 run_inspect=true
-run_check=false
+run_check=true
 
 tests=(
     "test_cdb_notimesteps"
@@ -109,10 +113,10 @@ if $run_batch ; then
     for i in "${tests[@]}"
     do
         echo "test: $i"
-        mpirun -np 1 $pvbatch -sym $filedriver "$CANFILE" data/$i.zip
+        $pvbatch -sym $filedriver "$CANFILE" data/$i.zip
     done
 else
-    echo "NOT running INTERACTIVE  tests ..."
+    echo "NOT running BATCH tests ..."
 fi
 
 # look at results

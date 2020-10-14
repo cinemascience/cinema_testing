@@ -16,7 +16,6 @@
   <!-- add image extract elememt in pipeline browser for renderview1 -->
   <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menuExtractors" />
   <pqevent object="pqClientMainWindow/menubar/menuExtractors/Image" command="activate" arguments="PNG" />
-  <pqevent object="pqClientMainWindow/propertiesDock/propertiesPanel/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/PropertiesFrame/ProxyPanel/Writer/ProxySelectionWidget/frame/ChosenProxyWidget/FileName/FileName" command="set_string" arguments="renview1_image_%.6ts%cm.png" />
 
   <!-- enable and set camera rotations for renderview1 -->
   <pqevent object="pqClientMainWindow/propertiesDock/propertiesPanel/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/PropertiesFrame/ProxyPanel/Writer/ProxySelectionWidget/frame/ChosenProxyWidget/CameraMode/ComboBox" command="activated" arguments="Phi-Theta" />
@@ -33,7 +32,6 @@
   <pqevent object="pqClientMainWindow/variableToolbar/actionScalarBarVisibility" command="set_boolean" arguments="false" />
   <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menuExtractors" />
   <pqevent object="pqClientMainWindow/menubar/menuExtractors/Image" command="activate" arguments="PNG" />
-  <pqevent object="pqClientMainWindow/propertiesDock/propertiesPanel/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/PropertiesFrame/ProxyPanel/Writer/ProxySelectionWidget/frame/ChosenProxyWidget/FileName/FileName" command="set_string" arguments="renview2_image_%.6ts%cm.png" />
 
   <!-- enable and set camera rotations for renderview2 -->
   <pqevent object="pqClientMainWindow/propertiesDock/propertiesPanel/scrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/PropertiesFrame/ProxyPanel/Writer/ProxySelectionWidget/frame/ChosenProxyWidget/CameraMode/ComboBox" command="activated" arguments="Phi-Theta" />
