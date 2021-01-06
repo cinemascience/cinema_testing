@@ -11,10 +11,6 @@ while [ "${1}" != "" ]; do
             shift
             pvbatch=${1}
             ;;
-        -f | --filedriver )
-            shift
-            filedriver=${1}
-            ;;
         -w | --web-browser )
             shift
             browser=${1}
@@ -25,6 +21,8 @@ while [ "${1}" != "" ]; do
             ;;
         * )
             echo "Could not parse ${1}!"
+            echo "run_tests is expecting these arguments:"
+            cat help_message.txt
             exit 1
             ;;
     esac
@@ -38,6 +36,13 @@ if [ -f $CANFILE ]; then
     echo "File $CANFILE exists."
 else
     echo "File $CANFILE does not exist, cannot continue"
+    exit
+fi
+DISKFILE="test/disk_out_ref.ex2"
+if [ -f $DISKFILE ]; then
+    echo "File $DISKFILE exists."
+else
+    echo "File $DISKFILE does not exist, cannot continue"
     exit
 fi
 
@@ -101,7 +106,7 @@ if $run_interactive ; then
     for i in "${tests[@]}"
     do
         echo "test:  $i"
-        $paraview --test-script=test/$i.xml --exit
+        $paraview -dr --test-script=test/$i.xml --exit
     done
 else
     echo "NOT running INTERACTIVE  tests ..."
@@ -113,7 +118,13 @@ if $run_batch ; then
     for i in "${tests[@]}"
     do
         echo "test: $i"
-        $pvbatch -sym $filedriver "$CANFILE" data/$i.zip
+        if [[ "${i}" == "test_cdb_notimesteps" ]]; then
+            echo "Using Disk"
+            $pvbatch -sym -m paraview.demos.filedriver_miniapp -g "$DISKFILE" -s data/$i.py
+        else
+            echo "Using Can"
+            $pvbatch -sym -m paraview.demos.filedriver_miniapp -g "$CANFILE" -s data/$i.py
+        fi
     done
 else
     echo "NOT running BATCH tests ..."
@@ -125,7 +136,7 @@ if $run_check ; then
     for i in "${tests[@]}"
     do
         echo "test: $i"
-        diff data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv
+        diff -y data/batch/$i.cdb/data.csv data/interactive/$i.cdb/data.csv
     done
 fi
 

@@ -1,4 +1,5 @@
 myenv.env
 test/can.ex2
+test/disk_out_ref.ex2
 data/*
 !data/readme.md

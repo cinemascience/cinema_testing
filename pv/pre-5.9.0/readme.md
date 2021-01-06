@@ -19,6 +19,9 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 | x       | x       | Extracts from multiple views could overwrite eachother (reported in https://gitlab.kitware.com/paraview/paraview/-/issues/20111#note_843540)                                         |
 | x       | x       | Could not set start and end time in xml test (reported in https://gitlab.kitware.com/paraview/paraview/-/issues/20271)                                                               |
 | x       | x       | Filedriver.py did not work with new catalyst states (reported by email, fixed in https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4445)                                 |
+| x       |         | Batch catalyst script with no timesteps not dumping anything (reported in https://gitlab.kitware.com/paraview/paraview/-/issues/20423)                                               |
+| x       |         | Interactive and Batch extracts not identical. Old issue coming back in 5.9.0-RC3 (reported in https://gitlab.kitware.com/paraview/paraview/-/issues/18969#note_880163)               |
+
 
 ### Interactive Tests
 
@@ -35,12 +38,12 @@ NOTE: 'Filed' column records whether or not the issue has been filed at github.k
 
 ### Catalyst Tests
 
-| Pass   | Test                                      | CDB              | Camera               | Notes       |
-| :----: | ----------------------------------------- | ---------------- | -------------------- | ----------- |
-| +      | ``test_cdb_notimesteps``                  | images           | static               |             |
-| +      | ``test_cdb_geom``                         | geom             | none                 |             |
-| +      | ``test_cdb_geom_and_images``              | geom, images     | none, static         |             |
-| +      | ``test_cdb_static_camera_catalyst``       | images           | static               |             |
-| +      | ``test_cdb_phi_theta_catalyst``           | images           | phi_theta            |             |
-| +      | ``test_cdb_twoview_static_catalyst``      | images, images   | static, static       |             |
-| +      | ``test_cdb_twoview_phi_theta_catalyst``   | images, images   | phi_theta, phi_theta |             |
+| Pass   | Test                                      | CDB              | Camera               | Notes                                                                              |
+| :----: | ----------------------------------------- | ---------------- | -------------------- | ---------------------------------------------------------------------------------- |
+| x      | ``test_cdb_notimesteps``                  | images           | static               | New failure. Posted in https://gitlab.kitware.com/paraview/paraview/-/issues/20423 |
+| +      | ``test_cdb_geom``                         | geom             | none                 |                                                                                    |
+| +      | ``test_cdb_geom_and_images``              | geom, images     | none, static         |                                                                                    |
+| +      | ``test_cdb_static_camera_catalyst``       | images           | static               |                                                                                    |
+| +      | ``test_cdb_phi_theta_catalyst``           | images           | phi_theta            |                                                                                    |
+| +      | ``test_cdb_twoview_static_catalyst``      | images, images   | static, static       |                                                                                    |
+| +      | ``test_cdb_twoview_phi_theta_catalyst``   | images, images   | phi_theta, phi_theta |                                                                                    |

@@ -26,7 +26,7 @@
   <!-- save catalyst state with cinema specification (spec D) -->
   <pqevent object="pqClientMainWindow/menubar" command="activate" arguments="menu_File" />
   <pqevent object="pqClientMainWindow/menubar/menu_File" command="activate" arguments="actionFileSaveCatalystState" />
-  <pqevent object="pqClientMainWindow/SaveCatalystStateFileDialog" command="filesSelected" arguments="/Users/stam/projects/cinema_testing/pv/pre-5.9.0/data/test_cdb_static_camera.zip" />
+  <pqevent object="pqClientMainWindow/SaveCatalystStateFileDialog" command="filesSelected" arguments="/Users/stam/projects/cinema_testing/pv/pre-5.9.0/data/test_cdb_static_camera.py" />
   <pqevent object="pqClientMainWindow/ProxyWidgetDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/GenerateCinemaSpecification/CheckBox" command="set_boolean" arguments="true" />
   <pqevent object="pqClientMainWindow/ProxyWidgetDialog/scrollArea/qt_scrollarea_viewport/Container/ProxyWidget/ExtractsOutputDirectory/FileChooser/FileLineEdit" command="set_string" arguments="data/batch/test_cdb_static_camera.cdb" />
   <pqevent object="pqClientMainWindow/ProxyWidgetDialog/widget/OKButton" command="activate" arguments="" />
