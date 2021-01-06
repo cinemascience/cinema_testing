@@ -4,7 +4,8 @@ These tests take advantage of ParaView's UI and Catalyst testing framework to ru
 
 1. Clone this repository
 
-2. Copy the testing dataset ``can.ex2`` from wherever it is on your system into the ``test/`` directory.
+2. Copy the testing dataset ``can.ex2`` and ``disk_out_ref.ex2`` from wherever it is on your system into the ``test/`` directory.
+  - Both are inlcuded in the packaged binary under examples which can be downloaded from https://paraview.org/download
 
 3. Type ``./run_tests`` with arguments and *full* paths to each of the following: paraview executable, pvbatch executable, filedriver.py script (located in paraview source repo), and web browser of choice (Firefox is recommended) and the test script will run. It will open ``ParaView``, create outputs, check those, and open viewers on the resulting databases.
   - Example: ``./run_tests -p /Users/stam/projects/paraview/master-build/bin/paraview.app/Contents/MacOS/paraview -b /Users/stam/projects/paraview/master-build/bin/pvbatch -f /Users/stam/projects/paraview/src/Examples/Catalyst/SampleScripts/filedriver.py -w firefox``
